@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A propos!{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1 class="display-3">Hello !</h1>
+  <p class="lead">Ce site permet la gestion des Tickets d'une entreprise à l'aide de plusieurs membres.</p>
+  <hr class="my-4">
+  <p>Cette application a été créé et devloppé par : Nouaoury Othman </br>Contact : bouadi44@gmail.com </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{{path('login_register')}}" role="button">Revenir à la page d'accueil</a>
+  </p>
+</div>
+{% endblock %}

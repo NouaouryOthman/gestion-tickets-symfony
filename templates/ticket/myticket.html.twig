@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Tickets{% endblock %}
+
+{% block body %}
+<h1>Mes Tickets</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th>Description</th>
+      <th>Statut</th>
+      <th>Priorite</th>
+      <th>Voir</th>
+      <th>Editer</th>
+      <th>Supprimer</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for t in ticket %}
+    <tr class="table-dark">
+      <td>{{t.id}}</td>
+      <td>{{t.ticketdescription}}</td>
+      <td>{{t.ticketstatut}}</td>
+      <td>{{t.Priority.title}}</td>
+      <td><a href="{{path('ticket_show',{'id':t.id})}}" class="btn btn-success"><span class="fa fa-eye"></span></a></td>
+      <td><a href="{{path('ticket_edit',{'id':t.id})}}" class="btn btn-info"><span class="fa fa-pencil-square-o"></span></a></td>
+      <td><a href="{{path('ticket_delete',{'id':t.id})}}" class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
+    </tr>
+    {% endfor %}
+   </tbody>
+   </table>
+   <a href="{{path('ticket_create')}}" class="btn btn-primary pull-right">Créer Ticket</a>
+{% endblock %}

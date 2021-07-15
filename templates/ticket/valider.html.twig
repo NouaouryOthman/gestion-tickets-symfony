@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Valider{% endblock %}
+
+{% block body %}
+<h1>Valider les tickets résolus</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th>Description</th>
+      <th>Statut</th>
+      <th>Priorite</th>
+      <th>Technicien</th>
+      <th>Valider Le Ticket</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for t in ticket %}
+    <tr class="table-dark">
+      <td>{{t.id}}</td>
+      <td>{{t.ticketdescription}}</td>
+      <td>{{t.ticketstatut}}</td>
+      <td>{{t.Priority.title}}</td>
+      <td>{% if t.technicien is not null %}
+            {{t.technicien.lastname}}
+        {% else %}
+            N/A
+        {% endif %}</td>
+      <td><a href="{{path('ticket_valider',{'id':t.id})}}" class="btn btn-info"><span class="fa fa-check"></span></a></td>
+    </tr>
+    {% endfor %}
+   </tbody>
+   </table>
+{% endblock %}

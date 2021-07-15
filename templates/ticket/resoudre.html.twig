@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tickets à résoudre!{% endblock %}
+
+{% block body %}
+<h1>Les Taches à faire</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th>Description</th>
+      <th>Statut</th>
+      <th>Priorite</th>
+      <th>Check</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for t in ticket %}
+  {% if t.ticketstatut == 'Assigné'%}
+    <tr class="table-dark">
+      <td>{{t.id}}</td>
+      <td>{{t.ticketdescription}}</td>
+      <td>{{t.ticketstatut}}</td>
+      <td>{{t.Priority.title}}</td>
+      <td><a href="{{path('resolu',{'id':t.id})}}" class="btn btn-primary"><span class="fa fa-thumbs-up"></span></a></td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+   </tbody>
+   </table>
+{% endblock %}

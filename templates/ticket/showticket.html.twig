@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block title %} Le ticket n° {{ticket.id}}{% endblock %}
+{% block body %}
+    <div class="container mt-5">
+        <h1>  Le ticket n° {{ticket.id}}</h1>
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-light">
+                    <h2>Détails</h2>
+                    <div class="row">
+                        <dd class="col-md-4">Identifiant</dd>
+                        <dd class="col-md-8">{{ticket.id}}</dd>
+                        <dd class="col-md-4">Titre</dd>
+                        <dd class="col-md-8">{{ticket.ticketname}}</dd>
+                        <dd class="col-md-4">Description</dd>
+                        <dd class="col-md-8">{{ticket.ticketdescription}}</dd>
+                        <dd class="col-md-4">Demandeur</dd>
+                        <dd class="col-md-8">{{ticket.Demandeur.firstname}}</dd>
+                        <dd class="col-md-4">Priorité</dd>
+                        <dd class="col-md-8">{{ticket.Priority.title}}</dd>
+                        <dd class="col-md-4">Statut</dd>
+                        <dd class="col-md-8">{{ticket.ticketstatut}}</dd>    
+                        <dd class="col-md-4">Date de création</dd>
+                        <dd class="col-md-8">{{ticket.ticketcreatedate|date('d/m/Y')}}</dd>                       </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+    <a href="{{path('index')}}" class="btn btn-primary">Revenir à vos Tickets</a>
+    <a href="{{path('ticket_create')}}" class="btn btn-info">Ou créer un autre</a>
+    </div>
+{% endblock %}

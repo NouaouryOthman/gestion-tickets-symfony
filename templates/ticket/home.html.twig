@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenu !{% endblock %}
+{% block body %}
+<h6 class="display-4">Bonjour {{u}}!</h6></br>
+<h1>Que voulez vous faire ?</h1></br>
+<div class="list-group">
+{% for rl in r %}
+{% if rl.title == 'CLIENT' %}
+<a href="{{path('index')}}" class="list-group-item list-group-item-action">Voir mes Tickets</a>
+<a href="{{path('ticket_create')}}" class="list-group-item list-group-item-action ">Créer un Ticket</a>
+{% endif %}
+{% if rl.title == 'CHEF' %}
+<a href="{{path('ticket_all')}}" class="list-group-item list-group-item-action ">Assigner des Tickets</a>
+<a href="{{path('ticket_non_valider')}}" class="list-group-item list-group-item-action ">Valider des Tickets</a>
+{% endif %}
+{% if rl.title == 'TECHNICIEN' %}
+<a href="{{path('resoudre')}}" class="list-group-item list-group-item-action ">Marquer un Ticket</a>
+{% endif %}
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer Ticket{% endblock %}
+
+{% block body %}
+Nouveau ticket
+{{form_start(form)}}
+{{form_widget(form)}}
+<button type="submit" class="btn btn-light">Enregister</button>
+{{form_end(form)}}
+{% endblock %}
